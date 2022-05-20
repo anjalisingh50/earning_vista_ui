@@ -1,7 +1,7 @@
 <?php 
 	defined('BASEPATH') OR exit('No direct script access allowed');
 
-	class AdminLogin extends MY_Controller
+	class Dashboard extends MY_Controller
 	{
 		public function __construct()
 		{
@@ -10,13 +10,8 @@
 
 		public function index()
 		{
-			$this->load->view("Admin/adminLogin");
-		}
-
-		public function doLogin()
-		{
-			$d['v'] = 'Admin/Dashboard';
+			$d['v'] = "dashboard";
 			$this->load->view('templates',$d);
-		}
+		}	
 	}
 ?>

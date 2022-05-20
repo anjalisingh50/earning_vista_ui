@@ -31,7 +31,7 @@
 
     </head>
 
-    <body style="background-image: url('assets/images/011.jpeg');">
+    <body style="background-image: url('../assets/images/011.jpeg');">
         <div class="account-pages my-5 pt-sm-5">
             <div class="container">
                 <div class="row justify-content-center">
@@ -69,7 +69,7 @@
                                     </a>
                                 </div>
                                 <div class="p-2">
-                                    <form class="form-horizontal" name="loginForm" method="POST" action="<?php echo base_url('Dashboard'); ?>">
+                                    <form class="form-horizontal" name="loginForm" method="POST" action="<?php echo base_url('Admin/AdminLogin/doLogin'); ?>">
             
                                         <div class="mb-3">
                                             <label for="username" class="form-label">Username</label>
