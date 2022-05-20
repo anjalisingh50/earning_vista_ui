@@ -21,7 +21,7 @@
                                 <img src="<?php echo base_url(); ?>assets/images/logo-light.svg" alt="" height="22">
                             </span>
                             <span class="logo-lg">
-                                <h2 style="padding-top: 15px;color: white;">Earning Vista</h2>
+                                <h2 style="padding-top: 15px;font-weight: bold;color: #52dcd3;">Earning <span style="color: gold;font-weight: bold;">Vista</span></h2>
                                 <!-- <img src="<?php echo base_url(); ?>assets/images/logo-light.png" alt="" height="19"> -->
                             </span>
                         </a>
@@ -36,15 +36,48 @@
                     <div class="dropdown d-inline-block">
                         <button type="button" class="btn header-item waves-effect" id="page-header-user-dropdown"
                         data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <img class="rounded-circle header-profile-user" src="<?php echo base_url(); ?>assets/images/users/avatar-1.jpg"
+                            <img class="rounded-circle header-profile-user" src="<?php echo base_url(); ?>assets/images/users/user_icon.png"
                                 alt="Header Avatar">
-                            <span class="d-none d-xl-inline-block ms-1" key="t-henry">Admin</span>
-                            <i class="mdi mdi-chevron-down d-none d-xl-inline-block"></i>
+                            <!-- <?php 
+                                print_r($_SESSION); 
+                            ?> -->
+                            <?php 
+                                if ($_SESSION['role_type'] == 1) 
+                                {
+                                    ?>
+                                        <span class="d-none d-xl-inline-block ms-1" key="t-henry"><?php echo $_SESSION['name']; ?></span>
+                                        <i class="mdi mdi-chevron-down d-none d-xl-inline-block"></i>
+                                    <?php
+                                }
+                                else if($_SESSION['role_type'] == 2)
+                                {
+                                    ?>
+                                        <span class="d-none d-xl-inline-block ms-1" key="t-henry"><?php echo $_SESSION['name']; ?></span>
+                                        <i class="mdi mdi-chevron-down d-none d-xl-inline-block"></i>
+                                    <?php
+                                }
+                            ?>
+                            
                         </button>
                         <div class="dropdown-menu dropdown-menu-end">
                             <!-- item-->
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item text-danger" href="<?php echo base_url('LoginPage/logout'); ?>"><i class="bx bx-power-off font-size-16 align-middle me-1 text-danger"></i> <span key="t-logout">Logout</span></a>
+                            <?php 
+                                if ($_SESSION['role_type'] == 1) 
+                                {
+                                    ?>
+                                        <a class="dropdown-item text-danger" href="<?php echo base_url('Admin/AdminLogin/logout'); ?>"><i class="bx bx-power-off font-size-16 align-middle me-1 text-danger"></i> <span key="t-logout">Logout</span>
+                                        </a>
+                                    <?php
+                                }
+                                else if($_SESSION['role_type'] == 2)
+                                {
+                                    ?>
+                                       <a class="dropdown-item text-danger" href="<?php echo base_url('Member/MemberLogin/logout'); ?>"><i class="bx bx-power-off font-size-16 align-middle me-1 text-danger"></i> <span key="t-logout">Logout</span>
+                                        </a> 
+                                    <?php
+                                }
+                            ?>
                         </div>
                     </div>
 

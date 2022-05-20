@@ -10,11 +10,13 @@
 
 		public function index()
 		{
-			$this->load->view("memberRegistration");
+			$this->load->view("Member/memberRegistration");
 		}
 
 		public function registerMember()
 		{
+			echo "<pre>";
+			print_r($_POST); die;
 			if($_FILES['photo']['size'] != '')
 			{
 				$profileImage = base64_encode(file_get_contents($_FILES['photo']['tmp_name']));	
@@ -29,10 +31,10 @@
 			if ($result['response_code']== 200) 
 			{
 				$this->session->set_flashdata('success', $result['msg']);
-                redirect('MemberRegister');
+                redirect('Member/MemberRegister');
 			}else{
 				$this->session->set_flashdata('error', $result['msg']);
-                redirect('MemberRegister');
+                redirect('Member/MemberRegister');
 			}
 		}
 	}

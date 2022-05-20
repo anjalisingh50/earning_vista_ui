@@ -20,6 +20,8 @@
         <!-- App Css-->
         <link href="<?php echo base_url(); ?>assets/css/app.min.css" id="app-style" rel="stylesheet" type="text/css" />
 
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
 
@@ -86,6 +88,8 @@
                                         
                                         <div class="mt-3 d-grid">
                                             <button class="btn btn-primary waves-effect waves-light" type="submit">Log In</button>
+
+                                            <a href="<?php echo base_url('Member/MemberRegister'); ?>" class="btn btn-info waves-effect waves-light" type="button" style="margin-top: 10px;">Register Member</a>
                                         </div>
 
                                         <!-- <div class="mt-4 text-center">
@@ -108,6 +112,18 @@
             </div>
         </div>
         <!-- end account-pages -->
+
+        <?php
+            if($this->session->flashdata('error')!=null)
+            {
+                ?>
+                <script type="text/javascript">
+                    swal('error','<?php echo $this->session->flashdata("error") ?>','error');
+                </script>
+                <?php
+                $this->session->set_flashdata('error',null);
+            }
+        ?>
 
         <!-- JAVASCRIPT -->
         <!-- <script src="<?php echo base_url(); ?>assets/libs/jquery/jquery.min.js"></script> -->

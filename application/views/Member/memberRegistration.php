@@ -38,7 +38,7 @@
 
     </head>
 
-    <body style="background-image: url('assets/images/bacground11.jpg');">
+    <body style="background-image: url('../assets/images/bacground11.jpg');">
         
         <div class="account-pages my-5 pt-sm-5">
             <div class="container">
@@ -49,14 +49,14 @@
                                 <div class="row" style="max-height: 100px;">
                                     <div class="col-12">
                                         <div class="text-primary p-4" style="text-align: center;">
-                                            <h5 class="text-primary">Member Register</h5>
+                                            <h5 class="text-primary"> Register Member</h5>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="card-body pt-0"> 
                                 <div class="col-md-12">
-                                    <a href="<?php echo base_url('LoginPage'); ?>" class="btn btn-sm btn-info" style="float: right;margin-top: 10px;">Go To Login</a>
+                                    <a href="<?php echo base_url('Member/MemberLogin'); ?>" class="btn btn-sm btn-info" style="float: right;margin-top: 10px;">Go To Login</a>
                                 </div>
                                 <div>
                                     <a href="javascript::void()">
@@ -69,7 +69,7 @@
                                 </div>
                                 
                                 <div class="p-2">
-                                    <form name="member_registration" method="POST" action="<?php echo base_url('MemberRegister/registerMember'); ?>" enctype="multipart/form-data">
+                                    <form name="member_registration" method="POST" action="<?php echo base_url('Member/MemberRegister/registerMember'); ?>" enctype="multipart/form-data">
                                         <div class="col-lg-12">
                                             <div class="row">
                                                 <div class="col-lg-4">

@@ -10,7 +10,7 @@
 
 		public function index()
 		{
-			$d['v'] = "dashboard";
+			$d['v'] = "Member/dashboard";
 			$this->load->view('templates',$d);
 		}	
 	}
