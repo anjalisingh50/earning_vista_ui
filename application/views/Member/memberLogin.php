@@ -6,7 +6,7 @@
 <head>
         
         <meta charset="utf-8" />
-        <title> Member Login </title>
+        <title>Earning Vista :: Member Login </title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
         <meta content="Themesbrand" name="author" />
@@ -69,17 +69,17 @@
                                     </a>
                                 </div>
                                 <div class="p-2">
-                                    <form class="form-horizontal" name="memberLoginForm" method="POST" action="#">
+                                    <form class="form-horizontal" name="memberLoginForm" method="POST" action="<?php echo base_url(); ?>Member/MemberLogin/doLogin">
         
                                         <div class="mb-3">
                                             <label for="username" class="form-label">Username</label>
-                                            <input type="text" class="form-control" name="username" id="username" placeholder="Enter mobile number" required>
+                                            <input type="text" class="form-control" name="mbr_username" id="mbr_username" placeholder="Enter username" required>
                                         </div>
                 
                                         <div class="mb-3">
                                             <label class="form-label">Password</label>
                                             <div class="input-group auth-pass-inputgroup">
-                                                <input type="password" name="password" id="password" class="form-control" placeholder="Enter password" aria-label="Password" aria-describedby="password-addon" required>
+                                                <input type="password" name="mbr_password" id="mbr_password" class="form-control" placeholder="Enter password" aria-label="Password" aria-describedby="password-addon" required>
                                                 <button class="btn btn-light " type="button" id="password-addon"><i class="mdi mdi-eye-outline"></i></button>
                                             </div>
                                         </div>
@@ -127,17 +127,17 @@
     $(function(){
         $("form[name='memberLoginForm']").validate({
             rules:{
-                username: {
+                mbr_username: {
                     required: true,
                 },
-                password: {
+                mbr_password: {
                     required: true,
                 },
             },
 
             messages: {
-                username: "this field is required !",
-                password: "this field is required !",
+                mbr_username: "this field is required !",
+                mbr_password: "this field is required !",
             },
 
             submitHandler: function(form){

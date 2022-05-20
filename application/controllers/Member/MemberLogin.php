@@ -12,5 +12,11 @@
 		{
 			$this->load->view("Member/memberLogin");
 		}
+
+		public function doLogin()
+		{
+			$d['v'] = 'Member/Dashboard';
+			$this->load->view('templates',$d);
+		}
 	}
 ?>
