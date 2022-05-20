@@ -1,76 +1,33 @@
-<!doctype html>
-<html lang="en">
+<div class="main-content">
+    <div class="page-content">
+        <div class="container-fluid">
 
-    
-<!-- Mirrored from themesbrand.com/skote/layouts/auth-register.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 28 Apr 2022 08:26:41 GMT -->
-<head>
-        
-        <meta charset="utf-8" />
-        <title>Earning Vista :: Register Member</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
-        <meta content="Themesbrand" name="author" />
-        <!-- App favicon -->
-        <link rel="shortcut icon" href="<?php echo base_url() ?>assets/images/favicon.ico">
+            <!-- start page title -->
+            <div class="row">
+                <div class="col-12">
+                    <div class="page-title-box d-sm-flex align-items-center justify-content-between">
+                        <h4 class="mb-sm-0 font-size-18">Create Member</h4>
 
-        <!-- Bootstrap Css -->
-        <link href="<?php echo base_url() ?>assets/css/bootstrap.min.css" id="bootstrap-style" rel="stylesheet" type="text/css" />
-        <!-- Icons Css -->
-        <link href="<?php echo base_url() ?>assets/css/icons.min.css" rel="stylesheet" type="text/css" />
-        <!-- App Css-->
-        <link href="<?php echo base_url() ?>assets/css/app.min.css" id="app-style" rel="stylesheet" type="text/css" />
+                        <div class="page-title-right">
+                            <ol class="breadcrumb m-0">
+                                <li class="breadcrumb-item"><a href="javascript: void(0);">Member</a></li>
+                                <li class="breadcrumb-item active">Create Member</li>
+                            </ol>
+                        </div>
 
-        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+                    </div>
+                </div>
+            </div>
+            <!-- end page title -->
 
-        <style type="text/css">
-            .form-group{
-                padding-bottom: 8px;
-            }
-
-            /*#backgroundImage{
-                z-index: 1;
-            }
-
-            #backgroundImage: before{
-                background-image: url('assets/images/bacground11.jpg');
-            }*/
-        </style>
-
-    </head>
-
-    <body style="background-image: url('../assets/images/bacground11.jpg');">
-        
-        <div class="account-pages my-5 pt-sm-5">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-md-10 col-lg-10 col-xl-10">
-                        <div class="card overflow-hidden">
-                            <div class="bg-primary bg-soft">
-                                <div class="row" style="max-height: 100px;">
-                                    <div class="col-12">
-                                        <div class="text-primary p-4" style="text-align: center;">
-                                            <h5 class="text-primary"> Register Member</h5>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card-body pt-0"> 
-                                <div class="col-md-12">
-                                    <a href="<?php echo base_url('Member/MemberLogin'); ?>" class="btn btn-sm btn-info" style="float: right;margin-top: 10px;">Go To Login</a>
-                                </div>
-                                <div>
-                                    <a href="javascript::void()">
-                                        <div class="avatar-md profile-user-wid mb-4">
-                                            <span class="avatar-title rounded-circle bg-light">
-                                                <img src="<?php echo base_url() ?>assets/images/logo.svg" alt="" class="rounded-circle" height="34">
-                                            </span>
-                                        </div>
-                                    </a>
-                                </div>
-                                
-                                <div class="p-2">
-                                    <form name="member_registration" method="POST" action="<?php echo base_url('Member/MemberRegister/registerMember'); ?>" enctype="multipart/form-data">
-                                        <div class="col-lg-12">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title mb-4">Create New Member</h4>
+                            <form name="adminMemReg" method="POST" action="<?php echo base_url('Member/MemberRegister/adminMember_register'); ?>" enctype="multipart/form-data">
+                                <div class="content-area">
+                                    <div class="col-lg-12">
                                             <div class="row">
                                                 <div class="col-lg-4">
                                                     <div class="form-group">
@@ -159,61 +116,40 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="mt-4" style="float: right;">
-                                            <button class="btn btn-primary waves-effect waves-light" type="submit">Submit</button>
-                                        </div>
-                                    </form>
+                                    </div>
                                 </div>
-            
-                            </div>
+                                <div class="mt-4" style="float: right;">
+                                    <button class="btn btn-success waves-effect waves-light" type="submit">Submit</button>
+                                </div>
+                            </form>
                         </div>
-                        <div class="mt-5 text-center">
-                            <div>
-                                <p style="color: white;">© <script>document.write(new Date().getFullYear())</script> Developed by Iotas Solutios Pvt. Ltd.</p>
-                            </div>
-                        </div>
-
                     </div>
                 </div>
             </div>
-        </div>
+            <!-- end row -->
 
-        <?php 
-            if($this->session->flashdata('success')!=null)
-            {
-                ?>
-                <script type="text/javascript">
-                    swal('success','<?php echo $this->session->flashdata("success") ?>','success');
-                </script>
-                <?php
-                $this->session->set_flashdata('success',null);
-            }
-            if($this->session->flashdata('error')!=null)
-            {
-                ?>
-                <script type="text/javascript">
-                    swal('error','<?php echo $this->session->flashdata("error") ?>','error');
-                </script>
-                <?php
-                $this->session->set_flashdata('error',null);
-            }
+        </div> <!-- container-fluid -->
+    </div>
+    <!-- End Page-content -->
+</div>
+
+<?php 
+    if($this->session->flashdata('success')!=null)
+    {
         ?>
-
-        <!-- JAVASCRIPT -->
-        <script src="<?php echo base_url() ?>assets/libs/jquery/jquery.min.js"></script>
-        <script src="<?php echo base_url() ?>assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
-        <script src="<?php echo base_url() ?>assets/libs/metismenu/metisMenu.min.js"></script>
-        <script src="<?php echo base_url() ?>assets/libs/simplebar/simplebar.min.js"></script>
-        <script src="<?php echo base_url() ?>assets/libs/node-waves/waves.min.js"></script>
-
-        <!-- validation init -->
-        <script src="<?php echo base_url() ?>assets/js/pages/validation.init.js"></script>
-        
-        <!-- App js -->
-        <script src="<?php echo base_url() ?>assets/js/app.js"></script>
-
-    </body>
-
-<!-- Mirrored from themesbrand.com/skote/layouts/auth-register.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 28 Apr 2022 08:26:41 GMT -->
-</html>
+        <script type="text/javascript">
+            swal('success','<?php echo $this->session->flashdata("success") ?>','success');
+        </script>
+        <?php
+        $this->session->set_flashdata('success',null);
+    }
+    if($this->session->flashdata('error')!=null)
+    {
+        ?>
+        <script type="text/javascript">
+            swal('error','<?php echo $this->session->flashdata("error") ?>','error');
+        </script>
+        <?php
+        $this->session->set_flashdata('error',null);
+    }
+?>
