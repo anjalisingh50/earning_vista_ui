@@ -94,10 +94,12 @@
 
 		public function MemberList()
 		{
-			// $api = 'Member/verify_member';
-			// $data = 'member_id='.$_POST['sponsor_id'];
-			// $method = 'POST';
-			// $result = $this->CallAPI($api, $data, $method);
+			$api = 'Member/getRegisterData';
+			$data = '';
+			$method = 'POST';
+			$result = $this->CallAPI($api, $data, $method);
+			$d['memberList'] = $result['data']['data'];
+			
 			$d['v'] = "Member/member_lists";
 			$this->load->view('templates',$d);
 		}

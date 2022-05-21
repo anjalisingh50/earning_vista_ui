@@ -33,33 +33,38 @@
                             </div>
 
                             <table id="datatable" class="table table-bordered dt-responsive  nowrap w-100">
-                                <thead style="text-align: center;">
+                                <thead style="text-align: center;background-color: burlywood;">
                                 <tr>
                                     <th>Sl. No.</th>
-                                    <th>Pakage Name</th>
-                                    <th>Quantity</th>
-                                    <th>Amount</th>
-                                    <th>Total</th>
-                                    <th>Generate Date</th>
-                                    <th>Transection Type</th>
+                                    <th>Name</th>
+                                    <th>Father/Husband Name</th>
+                                    <th>Member Id</th>
+                                    <th>Parent Id</th>
+                                    <th>Sponsor Id</th>
+                                    <th>Mobile</th>
+                                    <th>Email</th>
+                                    <th>Side</th>
+                                    <th>Registration Date</th>
+                                    <th>Country</th>
+                                    <th>State</th>
+                                    <th>City</th>
+                                    <th>Address</th>
                                 </tr>
                                 </thead>
 
                                 <tbody style="text-align: center;">
-                                <!-- <?php 
-                                if(!empty($history))
+                               <?php 
+                                if(!empty($memberList))
                                 {
-                                    foreach ($history as $key => $hstry) 
+                                    foreach ($memberList as $key => $list) 
                                     {
                                         ?>
                                             <tr>
                                                 <td><?php echo ($key+1); ?></td>
-                                                <td><?php echo $hstry['package_name']; ?></td>
-                                                <td><?php echo $hstry['qty']; ?></td>
-                                                <td><?php echo $hstry['amount']; ?></td>
-                                                <td><?php echo $hstry['total']; ?></td>
-                                                <td><?php echo date("d-m-Y", strtotime($hstry['gen_date'])) ; ?></td>
-                                                <td><?php echo $hstry['transaction_type']; ?></td>
+                                                <td><?php echo $list['name']; ?></td>
+                                                <td><?php echo $list['f_h_name']; ?></td>
+                                                <!-- <td><?php echo $list['amount']; ?></td>
+                                                <td><?php echo $list['total']; ?></td> -->
                                             </tr>
                                         <?php
                                     }
@@ -67,11 +72,10 @@
                                 else
                                 {
                                     ?>
-                                        <tr><td colspan="4" style="text-align: center;"> No Record Found </td></tr>
+                                        <tr><td colspan="14" style="text-align: center;"> No Record Found </td></tr>
                                     <?php
                                 }
-                                ?> -->
-                                </tbody>
+                                ?>
                             </table>
 
                         </div>

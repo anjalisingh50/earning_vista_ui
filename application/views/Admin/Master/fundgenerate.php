@@ -35,7 +35,7 @@
                             </div>
 
                             <table id="datatable" class="table table-bordered dt-responsive  nowrap w-100">
-                                <thead style="text-align: center;">
+                                <thead style="text-align: center;background-color: burlywood;">
                                 <tr>
                                     <th>Sl. No.</th>
                                     <th>Pakage Name</th>
