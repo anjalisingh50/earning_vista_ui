@@ -80,7 +80,7 @@
                                 <ul class="sub-menu mm-collapse" aria-expanded="false">
                                     <li><a href="javascript: void(0);" key="t-login">Profile</a></li>
                                     <li><a href="javascript: void(0);" key="t-login-2">Change Password</a></li>
-                                    <li><a href="javascript: void(0);" key="t-register">Logout</a></li>
+                                    <li><a href="<?php echo base_url('Admin/AdminLogin/logout'); ?>" key="t-register">Logout</a></li>
                                 </ul>
                             </li>
                         </ul>
@@ -133,7 +133,7 @@
                                 <ul class="sub-menu mm-collapse" aria-expanded="false">
                                     <li><a href="javascript: void(0);" key="t-login">Profile</a></li>
                                     <li><a href="javascript: void(0);" key="t-login-2">Change Password</a></li>
-                                    <li><a href="javascript: void(0);" key="t-register">Logout</a></li>
+                                    <li><a href="<?php echo base_url('Member/MemberLogin/logout'); ?>" key="t-register">Logout</a></li>
                                 </ul>
                             </li>
 

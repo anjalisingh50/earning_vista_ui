@@ -38,7 +38,7 @@
                                                 <div class="col-lg-4">
                                                     <div class="form-group">
                                                         <strong>Email Id</strong>
-                                                        <input type="email" class="form-control" name="email" id="email" required="" parsley-type="email" placeholder="Enter a valid e-mail">
+                                                        <input type="email" class="form-control" name="email" id="email" required="" parsley-type="email" placeholder="Enter a valid e-mail" onblur="checkEmail(this.value);">
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-4">
@@ -50,7 +50,7 @@
                                                 <div class="col-lg-4">
                                                     <div class="form-group">
                                                         <strong>Phone</strong>
-                                                        <input data-parsley-type="number" type="number" name="number" id="number" class="form-control" required="" placeholder="Enter only numbers">
+                                                        <input data-parsley-type="number" type="number" name="number" id="number" class="form-control" required="" placeholder="Enter only numbers" onblur="checkMobile(this.value);">
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-4">
@@ -66,7 +66,7 @@
                                                 <div class="col-lg-4">
                                                     <div class="form-group">
                                                         <strong>Sponsor Id</strong>
-                                                        <input type="text" class="form-control" name="sponsor_id" id="sponsor_id" placeholder="Sponsor id" required="">
+                                                        <input type="text" class="form-control" name="sponsor_id" id="sponsor_id" placeholder="Sponsor id" required onblur="checkSponsorId(this.value);">
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-4">
@@ -74,8 +74,8 @@
                                                         <strong>Side</strong>
                                                         <select name="side" id="side" class="form-control" required>
                                                             <option value="">---select---</option>
-                                                            <option value="left">Left</option>
-                                                            <option value="right">Right</option>
+                                                            <option value="L">Left</option>
+                                                            <option value="R ">Right</option>
                                                         </select>
                                                     </div>
                                                 </div>
@@ -153,3 +153,80 @@
         $this->session->set_flashdata('error',null);
     }
 ?>
+
+<script type="text/javascript">
+    function checkEmail()
+    {
+        var email = $("#email").val();
+        $.ajax({
+                url: '<?php echo base_url() ?>Member/MemberRegister/verifyEmail',
+                type: 'POST',
+                data: {email: email},
+                success:function(res)
+                {
+                    console.log(res);
+                    // if(res=='200'){
+                    //     swal("Successfully Deleted!!", {
+                    //       icon: "success",
+                    //     });
+                    //     location.reload();
+                    //   }else{
+                    //     swal("Something Went Wrong !!", {
+                    //     icon: "error",
+                    //     });
+                    //     location.reload();
+                    //   }
+                }
+        });
+    }
+
+    function checkMobile()
+    {
+        var mobile = $("#number").val();
+        $.ajax({
+                url: '<?php echo base_url() ?>Member/MemberRegister/verifymobile',
+                type: 'POST',
+                data: {mobile: mobile},
+                success:function(res)
+                {
+                    console.log(res);
+                    // if(res=='200'){
+                    //     swal("Successfully Deleted!!", {
+                    //       icon: "success",
+                    //     });
+                    //     location.reload();
+                    //   }else{
+                    //     swal("Something Went Wrong !!", {
+                    //     icon: "error",
+                    //     });
+                    //     location.reload();
+                    //   }
+                }
+        });
+    }
+
+    function checkSponsorId()
+    {
+        var sponsor_id = $("#sponsor_id").val();
+        $.ajax({
+                url: '<?php echo base_url() ?>Member/MemberRegister/verify_sponsor',
+                type: 'POST',
+                data: {sponsor_id: sponsor_id},
+                success:function(res)
+                {
+                    console.log(res);
+                    // if(res=='200'){
+                    //     swal("Successfully Deleted!!", {
+                    //       icon: "success",
+                    //     });
+                    //     location.reload();
+                    //   }else{
+                    //     swal("Something Went Wrong !!", {
+                    //     icon: "error",
+                    //     });
+                    //     location.reload();
+                    //   }
+                }
+        });
+    }
+</script>

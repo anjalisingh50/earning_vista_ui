@@ -64,5 +64,32 @@
                 redirect('Member/MemberRegister/addMember');
 			}
 		}
+
+		public function verifyEmail()
+		{
+			$apt = '';
+			$data = 'emai='.$_POST['email'];
+			$method = 'POST';
+			$result = CallAPI($api, $data, $method);
+			print_r($result['response_code']);
+		}
+
+		public function verifymobile()
+		{
+			$apt = '';
+			$data = 'mobile='.$_POST['mobile'];
+			$method = 'POST';
+			$result = CallAPI($api, $data, $method);
+			print_r($result['response_code']);
+		}
+
+		public function verify_sponsor()
+		{
+			$apt = '';
+			$data = 'mobile='.$_POST['mobile'];
+			$method = 'POST';
+			$result = CallAPI($api, $data, $method);
+			print_r($result['response_code']);
+		}
 	}
 ?>
