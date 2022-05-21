@@ -27,7 +27,7 @@
                                     <span key="t-ecommerce">Master</span>
                                 </a>
                                 <ul class="sub-menu" aria-expanded="false">
-                                    <li><a href="javascript::void();" key="t-products">Fund Generate</a></li>
+                                    <li><a href="<?php echo base_url('Admin/Master/FundGenerate'); ?>" key="t-products">Fund Generate</a></li>
                                     <li><a href="javascript::void();" key="t-products">Pakage</a></li>
                                     <li><a href="javascript::void();" key="t-products">Global Setup</a></li>
                                 </ul>
@@ -39,7 +39,8 @@
                                     <span key="t-contacts">Member</span>
                                 </a>
                                 <ul class="sub-menu mm-collapse" aria-expanded="false">
-                                    <li><a href="javascript: void(0);" key="t-user-grid">Registration</a></li>
+                                    <li><a href="<?php echo base_url('Member/MemberRegister/addMember'); ?>" key="t-user-grid">Registration</a></li>
+                                    <li><a href="<?php echo base_url('Member/MemberRegister/MemberList'); ?>" key="t-user-grid">Member List</a></li>
                                     <li><a href="javascript: void(0);" key="t-user-list">Activation</a></li>
                                     <li><a href="javascript: void(0);" key="t-profile">Geonology</a></li>
                                     <li><a href="javascript: void(0);" key="t-profile">Team Bussiness</a></li>
@@ -81,7 +82,7 @@
                                 <ul class="sub-menu mm-collapse" aria-expanded="false">
                                     <li><a href="javascript: void(0);" key="t-login">Profile</a></li>
                                     <li><a href="javascript: void(0);" key="t-login-2">Change Password</a></li>
-                                    <li><a href="javascript: void(0);" key="t-register">Logout</a></li>
+                                    <li><a href="<?php echo base_url('Admin/AdminLogin/logout'); ?>" key="t-register">Logout</a></li>
                                 </ul>
                             </li>
                         </ul>
@@ -134,7 +135,7 @@
                                 <ul class="sub-menu mm-collapse" aria-expanded="false">
                                     <li><a href="javascript: void(0);" key="t-login">Profile</a></li>
                                     <li><a href="javascript: void(0);" key="t-login-2">Change Password</a></li>
-                                    <li><a href="javascript: void(0);" key="t-register">Logout</a></li>
+                                    <li><a href="<?php echo base_url('Member/MemberLogin/logout'); ?>" key="t-register">Logout</a></li>
                                 </ul>
                             </li>
 
