@@ -67,28 +67,28 @@
 
 		public function verifyEmail()
 		{
-			$apt = '';
-			$data = 'emai='.$_POST['email'];
+			$api = 'Member/verify_email';
+			$data = 'email='.$_POST['email'];
 			$method = 'POST';
-			$result = CallAPI($api, $data, $method);
+			$result = $this->CallAPI($api, $data, $method);
 			print_r($result['response_code']);
 		}
 
 		public function verifymobile()
 		{
-			$apt = '';
+			$api = 'Member/verify_mobile';
 			$data = 'mobile='.$_POST['mobile'];
 			$method = 'POST';
-			$result = CallAPI($api, $data, $method);
+			$result = $this->CallAPI($api, $data, $method);
 			print_r($result['response_code']);
 		}
 
 		public function verify_sponsor()
 		{
-			$apt = '';
-			$data = 'mobile='.$_POST['mobile'];
+			$api = 'Member/verify_member';
+			$data = 'member_id='.$_POST['sponsor_id'];
 			$method = 'POST';
-			$result = CallAPI($api, $data, $method);
+			$result = $this->CallAPI($api, $data, $method);
 			print_r($result['response_code']);
 		}
 	}

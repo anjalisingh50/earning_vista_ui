@@ -69,7 +69,7 @@
                                 </div>
                                 
                                 <div class="p-2">
-                                    <form name="member_registration" method="POST" action="<?php echo base_url('Member/MemberRegister/registerMember'); ?>" enctype="multipart/form-data">
+                                    <form id="formember" name="member_registration" method="POST" action="<?php echo base_url('Member/MemberRegister/registerMember'); ?>" enctype="multipart/form-data">
                                         <div class="col-lg-12">
                                             <div class="row">
                                                 <div class="col-lg-4">
@@ -82,7 +82,9 @@
                                                     <div class="form-group">
                                                         <strong>Email Id</strong>
                                                         <input type="email" class="form-control" name="email" id="email" required="" parsley-type="email" placeholder="Enter a valid e-mail" onblur="checkEmail(this.value);">
+                                                        <p id="email-error"></p>
                                                     </div>
+
                                                 </div>
                                                 <div class="col-lg-4">
                                                     <div class="form-group">
@@ -94,6 +96,7 @@
                                                     <div class="form-group">
                                                         <strong>Phone</strong>
                                                         <input data-parsley-type="number" type="number" name="number" id="number" class="form-control" required="" placeholder="Enter only numbers" onblur="checkMobile(this.value);">
+                                                        <p id="phone-error"></p>
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-4">
@@ -101,8 +104,9 @@
                                                         <strong>Gender</strong>
                                                         <select name="gender" id="gender" class="form-control" required>
                                                             <option value="">---select---</option>
-                                                            <option value="male">Male</option>
-                                                            <option value="female">Female</option>
+                                                            <option value="M">Male</option>
+                                                            <option value="F">Female</option>
+                                                            <option value="O">Other</option>
                                                         </select>
                                                     </div>
                                                 </div>
@@ -110,6 +114,7 @@
                                                     <div class="form-group">
                                                         <strong>Sponsor Id</strong>
                                                         <input type="text" class="form-control" name="sponsor_id" id="sponsor_id" placeholder="Sponsor id" required onblur="checkSponsorId(this.value);">
+                                                        <p id="sponsor-error"></p>
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-4">
@@ -117,8 +122,8 @@
                                                         <strong>Side</strong>
                                                         <select name="side" id="side" class="form-control" required>
                                                             <option value="">---select---</option>
-                                                            <option value="left">Left</option>
-                                                            <option value="right">Right</option>
+                                                            <option value="L">Left</option>
+                                                            <option value="R">Right</option>
                                                         </select>
                                                     </div>
                                                 </div>
@@ -161,7 +166,7 @@
                                             </div>
                                         </div>
                                         <div class="mt-4" style="float: right;">
-                                            <button class="btn btn-primary waves-effect waves-light" type="submit">Submit</button>
+                                            <button id="submitcheck" onclick="checkSubmit()" class="btn btn-primary waves-effect waves-light" type="button">Submit</button>
                                         </div>
                                     </form>
                                 </div>
@@ -201,6 +206,89 @@
         ?>
 
         <script type="text/javascript">
+            let emailVerify = false;
+            let phoneVerify = false;
+            let sponsorVerify = false;
+            // checkSubmit();
+            function checkSubmit()
+            {
+                if($('#name').val() == '')
+                {
+                    swal("Name Required !", {
+                          icon: "error",
+                        });
+                }else if($('#email').val() == '')
+                {
+                    swal("Email Required !", {
+                          icon: "error",
+                        });
+                }else if($('#fatherHusband_name').val() == '')
+                {
+                    swal("Father/Husband Name Required !", {
+                          icon: "error",
+                        });
+                }else if($('#number').val() == '')
+                {
+                    swal("Mobile Number !", {
+                          icon: "error",
+                        });
+                }else if($('#gender').val() == '')
+                {
+                    swal("Gender Required !", {
+                          icon: "error",
+                        });
+                }else if($('#sponsor_id').val() == '')
+                {
+                    swal("Sponsor Id Required !", {
+                          icon: "error",
+                        });
+                }else if($('#side').val() == '')
+                {
+                    swal("side Required !", {
+                          icon: "error",
+                        });
+                }else if($('#country').val() == '')
+                {
+                    swal("Country Required !", {
+                          icon: "error",
+                        });
+                }else if($('#state').val() == '')
+                {
+                    swal("State Required !", {
+                          icon: "error",
+                        });
+                }else if($('#city').val() == '')
+                {
+                    swal("City Required !", {
+                          icon: "error",
+                        });
+                }else if($('#pincode').val() == '')
+                {
+                    swal("Pincode Required !", {
+                          icon: "error",
+                        });
+                }else if($('#file').attr('src') == '')
+                {
+                    swal("Profile Image Required !", {
+                          icon: "error",
+                        });
+                }else if($('#address').val() == ''){
+                    swal("Address Required !", {
+                          icon: "error",
+                        });
+                }else{
+                    if(emailVerify == true && phoneVerify == true && sponsorVerify == true)
+                    {
+                        // $("#submitcheck").prop('disabled',false);
+                        $("#formember").submit();
+                    }else{
+                        swal("Email or Phone or Sponsor Id Invalid !!", {
+                              icon: "error",
+                            });
+                    }
+                }
+            }
+
             function checkEmail()
             {
                 var email = $("#email").val();
@@ -211,17 +299,15 @@
                         success:function(res)
                         {
                             console.log(res);
-                            // if(res=='200'){
-                            //     swal("Successfully Deleted!!", {
-                            //       icon: "success",
-                            //     });
-                            //     location.reload();
-                            //   }else{
-                            //     swal("Something Went Wrong !!", {
-                            //     icon: "error",
-                            //     });
-                            //     location.reload();
-                            //   }
+                            if(res=='200'){
+                                emailVerify = true;
+                                // checkSubmit();
+                                $("#email-error").html('<span style="color:green;">Available</span>');
+                              }else{
+                                emailVerify = false;
+                                // checkSubmit();
+                                $("#email-error").html('<span style="color:red;">Not Available</span>');
+                              }
                         }
                 });
             }
@@ -236,17 +322,15 @@
                         success:function(res)
                         {
                             console.log(res);
-                            // if(res=='200'){
-                            //     swal("Successfully Deleted!!", {
-                            //       icon: "success",
-                            //     });
-                            //     location.reload();
-                            //   }else{
-                            //     swal("Something Went Wrong !!", {
-                            //     icon: "error",
-                            //     });
-                            //     location.reload();
-                            //   }
+                            if(res=='200'){
+                                phoneVerify = true;
+                                // checkSubmit();
+                                $("#phone-error").html('<span style="color:green;">Available</span>');
+                              }else{
+                                phoneVerify = false;
+                                // checkSubmit();
+                                $("#phone-error").html('<span style="color:red;">Not Available</span>');
+                              }
                         }
                 });
             }
@@ -261,17 +345,15 @@
                         success:function(res)
                         {
                             console.log(res);
-                            // if(res=='200'){
-                            //     swal("Successfully Deleted!!", {
-                            //       icon: "success",
-                            //     });
-                            //     location.reload();
-                            //   }else{
-                            //     swal("Something Went Wrong !!", {
-                            //     icon: "error",
-                            //     });
-                            //     location.reload();
-                            //   }
+                            if(res=='200'){
+                                sponsorVerify = true;
+                                // checkSubmit();
+                                $("#sponsor-error").html('<span style="color:green;">Available</span>');
+                              }else{
+                                sponsorVerify = false;
+                                // checkSubmit();
+                                $("#sponsor-error").html('<span style="color:red;">Not Available</span>');
+                              }
                         }
                 });
             }
