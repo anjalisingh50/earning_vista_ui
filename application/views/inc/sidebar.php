@@ -39,6 +39,7 @@
                                 </a>
                                 <ul class="sub-menu mm-collapse" aria-expanded="false">
                                     <li><a href="<?php echo base_url('Member/MemberRegister/addMember'); ?>" key="t-user-grid">Registration</a></li>
+                                    <li><a href="<?php echo base_url('Member/MemberRegister/MemberList'); ?>" key="t-user-grid">Member List</a></li>
                                     <li><a href="javascript: void(0);" key="t-user-list">Activation</a></li>
                                     <li><a href="javascript: void(0);" key="t-profile">Geonology</a></li>
                                     <li><a href="javascript: void(0);" key="t-profile">Team Bussiness</a></li>

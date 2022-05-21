@@ -29,7 +29,7 @@
 			}
 
 			$api = 'Member/addMember';
-			$data = 'name='.$_POST['name'].'&email_id='.$_POST['email'].'&f_h_name='.$_POST['fatherHusband_name'].'&mobile_no='.$_POST['number'].'&gender='.$_POST['gender'].'&sponsor_id='.$_POST['sponsor_id'].'&side='.$_POST['side'].'&country='.$_POST['country'].'&state='.$_POST['state'].'&city='.$_POST['city'].'&pin='.$_POST['pincode'].'&photo='.$profileImage.'&address='.$_POST['address'].'&c_by='."1";
+			$data = 'name='.$_POST['name'].'&email_id='.$_POST['email'].'&f_h_name='.$_POST['fatherHusband_name'].'&mobile_no='.$_POST['number'].'&gender='.$_POST['gender'].'&sponsor_id='.$_POST['sponsor_id'].'&side='.$_POST['side'].'&country='.$_POST['country'].'&state='.$_POST['state'].'&city='.$_POST['city'].'&pin='.$_POST['pincode'].'&photo='.$profileImage.'&address='.$_POST['address'].'&c_by='.$this->session->userdata('user_id');
 			$method = 'POST';
 			$result = $this->CallAPI($api, $data, $method);
 			if ($result['response_code']== 200) 
@@ -52,7 +52,7 @@
 			}
 
 			$api = 'Member/addMember';
-			$data = 'name='.$_POST['name'].'&email_id='.$_POST['email'].'&f_h_name='.$_POST['fatherHusband_name'].'&mobile_no='.$_POST['number'].'&gender='.$_POST['gender'].'&sponsor_id='.$_POST['sponsor_id'].'&side='.$_POST['side'].'&country='.$_POST['country'].'&state='.$_POST['state'].'&city='.$_POST['city'].'&pin='.$_POST['pincode'].'&photo='.$profileImage.'&address='.$_POST['address'].'&c_by='."1";
+			$data = 'name='.$_POST['name'].'&email_id='.$_POST['email'].'&f_h_name='.$_POST['fatherHusband_name'].'&mobile_no='.$_POST['number'].'&gender='.$_POST['gender'].'&sponsor_id='.$_POST['sponsor_id'].'&side='.$_POST['side'].'&country='.$_POST['country'].'&state='.$_POST['state'].'&city='.$_POST['city'].'&pin='.$_POST['pincode'].'&photo='.$profileImage.'&address='.$_POST['address'].'&c_by='.$this->session->userdata('user_id');
 			$method = 'POST';
 			$result = $this->CallAPI($api, $data, $method);
 			if ($result['response_code']== 200) 
@@ -90,6 +90,16 @@
 			$method = 'POST';
 			$result = $this->CallAPI($api, $data, $method);
 			print_r($result['response_code']);
+		}
+
+		public function MemberList()
+		{
+			// $api = 'Member/verify_member';
+			// $data = 'member_id='.$_POST['sponsor_id'];
+			// $method = 'POST';
+			// $result = $this->CallAPI($api, $data, $method);
+			$d['v'] = "Member/member_lists";
+			$this->load->view('templates',$d);
 		}
 	}
 ?>

@@ -80,9 +80,8 @@
                                                 </div>
                                                 <div class="col-lg-4">
                                                     <div class="form-group">
-                                                        <strong>Email Id</strong>
+                                                        <strong>Email Id</strong> <span id="email-error"></span>
                                                         <input type="email" class="form-control" name="email" id="email" required="" parsley-type="email" placeholder="Enter a valid e-mail" onblur="checkEmail(this.value);">
-                                                        <p id="email-error"></p>
                                                     </div>
 
                                                 </div>
@@ -94,9 +93,8 @@
                                                 </div>
                                                 <div class="col-lg-4">
                                                     <div class="form-group">
-                                                        <strong>Phone</strong>
+                                                        <strong>Phone</strong> <span id="phone-error"></span>
                                                         <input data-parsley-type="number" type="number" name="number" id="number" class="form-control" required="" placeholder="Enter only numbers" onblur="checkMobile(this.value);">
-                                                        <p id="phone-error"></p>
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-4">
@@ -112,9 +110,8 @@
                                                 </div>
                                                 <div class="col-lg-4">
                                                     <div class="form-group">
-                                                        <strong>Sponsor Id</strong>
+                                                        <strong>Sponsor Id</strong> <span id="sponsor-error"></span>
                                                         <input type="text" class="form-control" name="sponsor_id" id="sponsor_id" placeholder="Sponsor id" required onblur="checkSponsorId(this.value);">
-                                                        <p id="sponsor-error"></p>
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-4">
